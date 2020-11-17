@@ -44,6 +44,7 @@ class ResultFile extends React.Component {
                 })
                 .catch(err => {
                     this.setState({
+                        file_size: err.headers["content-length"],
                         valid: false
                     })
                     console.log(err)

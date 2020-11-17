@@ -67,7 +67,9 @@ const storeFilters = (filterDict) => {
     if (isFramedApp) {
         let data = {};
         for (let key of filterKeys) {
-            data[key] = filterDict[key].join(settingsDelimiter);
+            if (key in filterDict) {
+                data[key] = filterDict[key].join(settingsDelimiter);
+            }
         }
         data["reload"] = false;
         window.parent.postMessage(
